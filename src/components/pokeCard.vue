@@ -10,13 +10,21 @@ export default {
 }
 </script>
 <template>
-    <div class='text-center p-2'>
-        <img src="image" alt="name">
+    <div class='p-2'>
+        <img class="img-fluid" :src=image :alt=name>
+        <h3>{{ name }} #{{ number }}</h3>
     </div>
 
 </template>
 
 
-<style>
 
+<style scoped>
+div {
+    flex-basis: calc(100% / 5);
+}
+
+h3 {
+    color: rgb(211, 55, 48);
+}
 </style>

@@ -13,11 +13,16 @@ export default {
 
     },
     created() {
-        axios.get('https://41tyokboji.execute-api.eu-central-1.amazonaws.com/dev/api/v1/pokemons?per=10&page=1')
-            .then((res) => { this.pokemons = res.data.results; })
+        axios.get('https://41tyokboji.execute-api.eu-central-1.amazonaws.com/dev/api/v1/pokemons?per=10&page=22')
+            .then((res) => {
+                this.pokemons = res.data.docs
+            })
 
     }
 }
+
+
+
 
 
 
@@ -26,11 +31,9 @@ export default {
 <template>
     <main>
         <div class="container">
-            <div class="row col-lg2 col-md-3 col-sm-4 g-4">
+            <div class="row">
                 <pokeCard v-for="pokemon in pokemons" :key="pokemon.number" class="mb-5" :name="pokemon.name"
-                    :image="pokemon.image" :number="pokemon.number">
-
-
+                    :image="pokemon.imageUrl" :number="pokemon.number">
                 </pokeCard>
             </div>
         </div>
@@ -42,5 +45,7 @@ main {
     background-image: url(../assets/img/Johto_HGSSmap-1038x576.png);
     background-repeat: no-repeat;
     background-size: cover;
+    padding-top: 106px;
+    overflow-y: hidden;
 }
 </style>

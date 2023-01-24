@@ -15,5 +15,10 @@ header {
     background-image: url(../assets/img/pokeball.png);
     background-size: contain;
     height: 100px;
+    margin-bottom: 25px;
+    position: fixed;
+    top: 0%;
+    right: 0;
+    left: 0;
 }
 </style>
