@@ -22,6 +22,7 @@ export default {
 <style scoped>
 div {
     flex-basis: calc(100% / 5);
+
 }
 
 h3 {
