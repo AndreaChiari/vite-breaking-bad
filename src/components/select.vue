@@ -1,37 +1,55 @@
 <script>
-import axios from 'axios';
+
 
 export default {
     name: 'typeSelect',
     data() {
         return {
-            types: [],
-
+            types: [
+                "Psychic",
+                "Ice",
+                "Grass",
+                "Ghost",
+                "Water",
+                "Ground",
+                "Bug",
+                "Flying",
+                "Fire",
+                "Fairy",
+                "Normal",
+                "Dragon",
+                "Steel",
+                "Electric",
+                "Poison",
+                "Fighting",
+                "Rock",
+                "Dark"
+            ]
         }
     },
-    methods: {
+    /* methods: {
         getType() {
             axios.get('https://41tyokboji.execute-api.eu-central-1.amazonaws.com/dev/api/v1/pokemons/types1')
                 .then((res) => {
+                    console.log(res)
                     this.types = res.data
                 });
-
         },
+
+    },
+    created() {
+        this.getType()
     }
+    */
+
+
 
 }
-
-
-
-
-
-
 </script>
-
 
 <template>
     <select class="select">
-        <option class="option" v-for="element in types"></option>
+        <option class="option" v-for="element in types" :key="element.types">{{ element }}</option>
     </select>
 </template>
 
@@ -42,6 +60,13 @@ select {
     margin-left: 420px;
 }
 </style>
+
+
+
+
+
+
+
 
 
 

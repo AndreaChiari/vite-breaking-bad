@@ -12,26 +12,14 @@ export default {
 
         }
     },
-    methods: {
-        created() {
-            axios.get('https://41tyokboji.execute-api.eu-central-1.amazonaws.com/dev/api/v1/pokemons?per=10&page=22')
-                .then((res) => {
-                    this.pokemons = res.data.docs
-                })
-        },
 
-    }
-
-
-
-
+    created() {
+        axios.get('https://41tyokboji.execute-api.eu-central-1.amazonaws.com/dev/api/v1/pokemons?per=10&page=22')
+            .then((res) => {
+                this.pokemons = res.data.docs
+            })
+    },
 }
-
-
-
-
-
-
 
 </script>
 <template>
@@ -60,3 +48,8 @@ main {
 
 }
 </style>
+
+
+
+
+
