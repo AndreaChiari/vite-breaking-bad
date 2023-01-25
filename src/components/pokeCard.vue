@@ -16,9 +16,6 @@ export default {
     </div>
 
 </template>
-
-
-
 <style scoped>
 div {
     flex-basis: calc(100% / 5);

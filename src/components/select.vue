@@ -1,5 +1,6 @@
 <script>
 import axios from 'axios';
+
 export default {
     name: 'typeSelect',
     data() {
@@ -8,17 +9,20 @@ export default {
 
         }
     },
+    methods: {
+        getType() {
+            axios.get('https://41tyokboji.execute-api.eu-central-1.amazonaws.com/dev/api/v1/pokemons/types1')
+                .then((res) => {
+                    this.types = res.data
+                });
 
+        },
+    }
 
-
-    getType() {
-        axios.get('https://41tyokboji.execute-api.eu-central-1.amazonaws.com/dev/api/v1/pokemons/types1')
-            .then((res) => {
-                this.types = res.data;
-            });
-
-    },
 }
+
+
+
 
 
 
