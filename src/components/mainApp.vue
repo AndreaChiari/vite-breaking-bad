@@ -12,25 +12,31 @@ export default {
 
         }
     },
+    methods: {
+        onTypeChange(tipo) {
+            console.log(tipo)
+            axios.get(`https://41tyokboji.execute-api.eu-central-1.amazonaws.com/dev/api/v1/pokemons?per=20&eq[type1]=${tipo}`)
+                .then((res) => {
+                    this.pokemons = res.data.docs
 
-    created() {
-        axios.get('https://41tyokboji.execute-api.eu-central-1.amazonaws.com/dev/api/v1/pokemons?per=10&page=22')
-            .then((res) => {
-                this.pokemons = res.data.docs
-            })
+                })
+        }
     },
+
+
 }
 
 </script>
 <template>
     <main>
         <div class="main-container mx-auto">
+            <h2 class="text-center text-danger">CHOOSE YOUR TYPE HERE!</h2>
+            <typeSelect @type-change="onTypeChange"></typeSelect>
             <div class="row">
                 <pokeCard v-for="pokemon in pokemons" :key="pokemon.number" class="mb-5" :name="pokemon.name"
                     :image="pokemon.imageUrl" :number="pokemon.number">
                 </pokeCard>
             </div>
-            <typeSelect></typeSelect>
         </div>
     </main>
 </template>
@@ -41,6 +47,7 @@ main {
     background-repeat: no-repeat;
     background-size: cover;
     padding-top: 106px;
+    overflow-y: scroll;
 
     div {
         width: 1000px;

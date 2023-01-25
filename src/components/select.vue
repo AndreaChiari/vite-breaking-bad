@@ -24,7 +24,10 @@ export default {
                 "Fighting",
                 "Rock",
                 "Dark"
-            ]
+            ],
+            categoryType: '',
+            emits: ['type-change'],
+
         }
     },
     /* methods: {
@@ -48,8 +51,10 @@ export default {
 </script>
 
 <template>
-    <select class="select">
-        <option class="option" v-for="element in types" :key="element.types">{{ element }}</option>
+    <select class="select" @change="$emit('type-change', categoryType)" v-model="categoryType">
+        <option class="option" v-for="element in types" :key="element.types">{{
+            element
+        }}</option>
     </select>
 </template>
 
@@ -57,7 +62,7 @@ export default {
 <style>
 select {
     width: 200px;
-    margin-left: 420px;
+    margin-left: 390px;
 }
 </style>
 
